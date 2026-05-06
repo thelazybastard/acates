@@ -2,13 +2,28 @@ package main
 
 import (
 	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
 func main() {
-	a := app.New()
-	w := a.NewWindow("Hello World")
+	acatesApp := app.New()
+	acatesWindow := acatesApp.NewWindow("Acates")
 
-	w.SetContent(widget.NewLabel("Hello World!"))
-	w.ShowAndRun()
+	homePage := container.NewVBox(
+		widget.NewLabel("HEllo world"),
+	)
+
+	settingsPage := container.NewVBox(
+		widget.NewLabel("HEllo World"),
+	)
+
+	root := container.NewAppTabs(
+		container.NewTabItem("Home", homePage),
+		container.NewTabItem("Settings", settingsPage),
+	)
+	root.SetTabLocation(container.TabLocationLeading)
+
+	acatesWindow.SetContent(root)
+	acatesWindow.ShowAndRun()
 }
