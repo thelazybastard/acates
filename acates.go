@@ -22,7 +22,7 @@ func main() {
 		widget.NewLabel("Hello world"),
 	)
 
-	settingsPage := container.NewVBox(
+	aboutPage := container.NewVBox(
 		widget.NewLabel("HEllo World"),
 	)
 
@@ -30,7 +30,7 @@ func main() {
 		container.NewTabItem("Home", recipesPage),
 		container.NewTabItem("Tracker", trackerPage),
 		container.NewTabItem("Suggestions", suggestionsPage),
-		container.NewTabItem("Settings", settingsPage),
+		container.NewTabItem("Settings", aboutPage),
 	)
 	root.SetTabLocation(container.TabLocationLeading)
 
