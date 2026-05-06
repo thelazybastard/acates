@@ -10,8 +10,16 @@ func main() {
 	acatesApp := app.New()
 	acatesWindow := acatesApp.NewWindow("Acates")
 
-	homePage := container.NewVBox(
+	recipesPage := container.NewVBox(
 		widget.NewLabel("HEllo world"),
+	)
+
+	trackerPage := container.NewVBox(
+		widget.NewLabel("Hello world"),
+	)
+
+	suggestionsPage := container.NewVBox(
+		widget.NewLabel("Hello world"),
 	)
 
 	settingsPage := container.NewVBox(
@@ -19,7 +27,9 @@ func main() {
 	)
 
 	root := container.NewAppTabs(
-		container.NewTabItem("Home", homePage),
+		container.NewTabItem("Home", recipesPage),
+		container.NewTabItem("Tracker", trackerPage),
+		container.NewTabItem("Suggestions", suggestionsPage),
 		container.NewTabItem("Settings", settingsPage),
 	)
 	root.SetTabLocation(container.TabLocationLeading)
