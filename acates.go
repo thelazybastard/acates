@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/url"
+
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
@@ -23,7 +25,18 @@ func main() {
 	)
 
 	aboutPage := container.NewVBox(
-		widget.NewLabel("HEllo World"),
+		widget.NewCard(
+			"Acates",
+			"Version 1.0.0",
+			container.NewVBox(
+				widget.NewLabel("Author: Monish H. Giani"),
+				container.NewHBox(
+					widget.NewLabel("License:"),
+					widget.NewHyperlink("GNU General Public Licence v3.0", parseUrl("https://github.com/thelazybastard/acates/blob/main/LICENSE")),
+				),
+				widget.NewHyperlink("Source Code", parseUrl("https://github.com/thelazybastard/acates")),
+			),
+		),
 	)
 
 	root := container.NewAppTabs(
@@ -36,4 +49,9 @@ func main() {
 
 	acatesWindow.SetContent(root)
 	acatesWindow.ShowAndRun()
+}
+
+func parseUrl(website string) *url.URL {
+	u, _ := url.Parse(website)
+	return u
 }
